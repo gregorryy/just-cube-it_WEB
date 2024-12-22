@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Just Cube It</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div id="time"></div>
+      <div id="scramble"></div>
+      <form name="parametre" action="" method="">
+        <input
+          type="button"
+          name="lance"
+          value="▷"
+          onclick="chrono();debut();"
+        />
+        <input
+          type="button"
+          name="pause"
+          value="⏸︎"
+          onclick="arret();"
+          disabled="disabled"
+        />
+        <input
+          type="button"
+          name="zero"
+          value="🗑️"
+          onclick="arret();raz();"
+          disabled="disabled"
+        />
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
