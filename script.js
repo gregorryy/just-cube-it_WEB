@@ -38,23 +38,16 @@ function chrono() {
 
 //Bouton play ou Touche espace
 function debut() {
-  document.parametre.lance.disabled = "disabled";
-  document.parametre.pause.disabled = "";
-  document.parametre.zero.disabled = "";
   start = true;
 }
 
 //Bouton stop ou Touche espace
 function arret() {
   window.clearTimeout(reglage);
-  document.parametre.lance.disabled = "";
-  document.parametre.pause.disabled = "disabled";
-  document.parametre.zero.disabled = "";
 }
 
 //Bouton poubelle ou Touche Suppr
 function raz() {
-  document.parametre.zero.disabled = "disabled";
   centi = 0;
   mili = 0;
   sec = 0;
@@ -66,7 +59,7 @@ document.addEventListener("keydown", (event) => {
   //Touche espace préssée
   if (event.code === "Space") {
     event.preventDefault();
-    if (!start) {
+    if (!start && document.getElementById("time").innerHTML === "00.00") {
       chrono();
       debut();
       buttonNone();
@@ -78,10 +71,11 @@ document.addEventListener("keydown", (event) => {
   }
   //Touche suppr préssée
   if (event.code === "Backspace") {
-    event.preventDefault();
     arret();
     raz();
     buttonYes();
+    generateScramble();
+    start = false;
   }
 });
 
@@ -100,4 +94,48 @@ function buttonYes() {
 function buttonPause() {
   document.getElementById("pause").classList = "none";
   document.getElementById("zero").classList = "zero";
+}
+
+//SCRAMBLE GENERATOR
+generateScramble();
+
+function generateScramble() {
+  // Possible Letters
+  var array = new Array(" U", " D", " R", " L", " F", " B");
+
+  // Possible switches
+  var switches = ["", "'", "2"];
+
+  var array2 = new Array(); // The Scramble.
+
+  var last = ""; // Last used letter
+
+  var random = 0;
+
+  for (var i = 0; i < 20; i++) {
+    // the following loop runs until the last one
+    // letter is another of the new one
+    do {
+      random = Math.floor(Math.random() * array.length);
+    } while (last == array[random]);
+
+    // assigns the new one as the last one
+    last = array[random];
+
+    // the scramble item is the letter
+    // with (or without) a switch
+    var scrambleItem =
+      array[random] + switches[parseInt(Math.random() * switches.length)];
+
+    array2.push(scrambleItem); // Get letters in random order in the array.
+  }
+
+  var scramble = "";
+
+  // Appends all scramble items to scramble variable
+  for (i = 0; i < 20; i++) {
+    scramble += array2[i];
+  }
+
+  document.getElementById("scramble").innerHTML = scramble; // Display the scramble
 }

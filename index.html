@@ -7,33 +7,35 @@
   </head>
   <body>
     <div class="container">
-      <div id="time"></div>
-      <div id="scramble"></div>
-      <form name="parametre" action="" method="">
-        <input
-          type="button"
-          name="lance"
-          value="▷"
-          onclick="chrono();debut();buttonNone();"
-          id="lance"
-        />
-        <input
-          type="button"
-          name="pause"
-          value="⏸︎"
-          onclick="arret();buttonPause();"
-          class="none"
-          id="pause"
-        />
-        <input
-          type="button"
-          name="zero"
-          value="🗑️"
-          onclick="arret();raz();buttonYes();"
-          class="none"
-          id="zero"
-        />
-      </form>
+      <div class="timer">
+        <div id="scramble"></div>
+        <div id="time"></div>
+        <form name="parametre" action="" method="">
+          <input
+            type="button"
+            name="lance"
+            value="▷"
+            onclick="chrono();debut();buttonNone();"
+            id="lance"
+          />
+          <input
+            type="button"
+            name="pause"
+            value="⏸︎"
+            onclick="arret();buttonPause();"
+            class="none"
+            id="pause"
+          />
+          <input
+            type="button"
+            name="zero"
+            value="🗑️"
+            onclick="arret();raz();buttonYes();generateScramble();"
+            class="none"
+            id="zero"
+          />
+        </form>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>
