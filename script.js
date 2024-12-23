@@ -53,6 +53,7 @@ function raz() {
   sec = 0;
   afficher = sec + "0." + centi + mili;
   document.getElementById("time").innerHTML = afficher;
+  start = false;
 }
 
 document.addEventListener("keydown", (event) => {
@@ -138,4 +139,34 @@ function generateScramble() {
   }
 
   document.getElementById("scramble").innerHTML = scramble; // Display the scramble
+}
+
+function showTimer() {
+  document.getElementById("timer").style.display = "block";
+  document.getElementById("stats").style.display = "none";
+  document.getElementById("settings").style.display = "none";
+
+  document.getElementById("navbar-timer").classList = "navbar-active";
+  document.getElementById("navbar-settings").classList = "navbar-settings";
+  document.getElementById("navbar-stats").classList = "navbar-stats";
+}
+
+function showStats() {
+  document.getElementById("stats").style.display = "block";
+  document.getElementById("timer").style.display = "none";
+  document.getElementById("settings").style.display = "none";
+
+  document.getElementById("navbar-stats").classList = "navbar-active";
+  document.getElementById("navbar-settings").classList = "navbar-settings";
+  document.getElementById("navbar-timer").classList = "navbar-timer";
+}
+
+function showSettings() {
+  document.getElementById("timer").style.display = "none";
+  document.getElementById("stats").style.display = "none";
+  document.getElementById("settings").style.display = "block";
+
+  document.getElementById("navbar-settings").classList = "navbar-active";
+  document.getElementById("navbar-timer").classList = "navbar-timer";
+  document.getElementById("navbar-stats").classList = "navbar-stats";
 }

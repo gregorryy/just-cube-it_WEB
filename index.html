@@ -4,10 +4,14 @@
     <meta charset="UTF-8" />
     <title>Just Cube It</title>
     <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="container">
-      <div class="timer">
+      <div class="timer" style="display: block" id="timer">
         <div id="scramble"></div>
         <div id="time"></div>
         <form name="parametre" action="" method="">
@@ -35,6 +39,29 @@
             id="zero"
           />
         </form>
+      </div>
+      <div class="stats" style="display: none" id="stats">
+        <h1>STATS IN DEV</h1>
+      </div>
+      <div class="settings" style="display: none" id="settings">
+        <h1>SETTINGS IN DEV</h1>
+      </div>
+      <div class="navbar">
+        <div id="navbar-timer" class="navbar-active">
+          <button onclick="showTimer()">
+            <i class="fas fa-clock"></i>
+          </button>
+        </div>
+        <div id="navbar-stats" class="navbar-stats">
+          <button onclick="showStats()">
+            <i class="fas fa-list"></i>
+          </button>
+        </div>
+        <div id="navbar-settings" class="navbar-settings">
+          <button onclick="showSettings()">
+            <i class="fas fa-cog"></i>
+          </button>
+        </div>
       </div>
     </div>
     <script src="script.js"></script>
