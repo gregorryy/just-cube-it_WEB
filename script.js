@@ -69,8 +69,10 @@ document.addEventListener("keydown", (event) => {
     if (!start) {
       chrono();
       debut();
+      buttonNone();
     } else {
       arret();
+      buttonPause();
       start = !start;
     }
   }
@@ -79,5 +81,23 @@ document.addEventListener("keydown", (event) => {
     event.preventDefault();
     arret();
     raz();
+    buttonYes();
   }
 });
+
+function buttonNone() {
+  document.getElementById("pause").classList = "pause";
+  document.getElementById("zero").classList = "zero";
+  document.getElementById("lance").classList = "none";
+}
+
+function buttonYes() {
+  document.getElementById("pause").classList = "none";
+  document.getElementById("zero").classList = "none";
+  document.getElementById("lance").classList = "lance";
+}
+
+function buttonPause() {
+  document.getElementById("pause").classList = "none";
+  document.getElementById("zero").classList = "zero";
+}

@@ -14,21 +14,24 @@
           type="button"
           name="lance"
           value="▷"
-          onclick="chrono();debut();"
+          onclick="chrono();debut();buttonNone();"
+          id="lance"
         />
         <input
           type="button"
           name="pause"
           value="⏸︎"
-          onclick="arret();"
-          disabled="disabled"
+          onclick="arret();buttonPause();"
+          class="none"
+          id="pause"
         />
         <input
           type="button"
           name="zero"
           value="🗑️"
-          onclick="arret();raz();"
-          disabled="disabled"
+          onclick="arret();raz();buttonYes();"
+          class="none"
+          id="zero"
         />
       </form>
     </div>
